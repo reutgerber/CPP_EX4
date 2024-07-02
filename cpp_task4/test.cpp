@@ -1,4 +1,4 @@
-#reutgerber@gmail.com
+// reutgerber@gmail.com
 // provides main();
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 
@@ -6,18 +6,16 @@
 
 #include <stack>
 #include <complex>
-
 #include <iostream>
 #include <string>
 #include "node.hpp"
 #include "tree.hpp"
 #include <string>
 
-
-
-TEST_CASE("test binary tree  preorder iterator") {
-    cout << "test binary tree  preorder iterator" << endl;
-    Tree<double, 2> tree; // Binary tree that contains doubles.
+// בדיקת איטרטור Pre-Order בעץ בינארי
+TEST_CASE("test binary tree preorder iterator") {
+    cout << "test binary tree preorder iterator" << endl;
+    Tree<double, 2> tree; // עץ בינארי שמכיל מספרים עשרוניים (double).
     Node<double>* root_node = new Node<double>(1.1);
     tree.add_root(root_node);
     Node<double>* n1 = new Node<double>(1.2);
@@ -26,7 +24,7 @@ TEST_CASE("test binary tree  preorder iterator") {
     Node<double>* n4 = new Node<double>(1.5);
     Node<double>* n5 = new Node<double>(1.6);
 
-
+    // הוספת תתי צמתים לעץ
     tree.add_sub_node(root_node, n1);
     tree.add_sub_node(root_node, n2);
     tree.add_sub_node(n1, n3);
@@ -36,18 +34,20 @@ TEST_CASE("test binary tree  preorder iterator") {
     vector<double> expected = { 1.1, 1.2, 1.4, 1.5, 1.3, 1.6 };
     vector<double> actual;
 
+    // איטרציה על העץ בסדר Pre-Order ואיסוף התוצאות
     for (auto it = tree.begin_pre_order(); it != tree.end_pre_order(); ++it)
     {
-         actual.push_back(it->get_value());
+        actual.push_back(it->get_value());
     }
 
+    // בדיקה שהתוצאה המתקבלת שווה לתוצאה הצפויה
     CHECK(expected == actual); 
-   
 }
 
-TEST_CASE("test binary tree  postorder iterator") {
-    cout << "test binary tree  postorder iterator" << endl;
-    Tree<double, 2> tree; // Binary tree that contains doubles.
+// בדיקת איטרטור Post-Order בעץ בינארי
+TEST_CASE("test binary tree postorder iterator") {
+    cout << "test binary tree postorder iterator" << endl;
+    Tree<double, 2> tree; // עץ בינארי שמכיל מספרים עשרוניים (double).
     Node<double>* root_node = new Node<double>(1.1);
     tree.add_root(root_node);
     Node<double>* n1 = new Node<double>(1.2);
@@ -56,7 +56,7 @@ TEST_CASE("test binary tree  postorder iterator") {
     Node<double>* n4 = new Node<double>(1.5);
     Node<double>* n5 = new Node<double>(1.6);
 
-
+    // הוספת תתי צמתים לעץ
     tree.add_sub_node(root_node, n1);
     tree.add_sub_node(root_node, n2);
     tree.add_sub_node(n1, n3);
@@ -66,18 +66,20 @@ TEST_CASE("test binary tree  postorder iterator") {
     vector<double> expected = { 1.4, 1.5, 1.2, 1.6, 1.3, 1.1 };
     vector<double> actual;
 
+    // איטרציה על העץ בסדר Post-Order ואיסוף התוצאות
     for (auto it = tree.begin_post_order(); it != tree.end_post_order(); ++it)
     {
         actual.push_back(it->get_value());
-    } // prints: 1.4, 1.5, 1.2, 1.6, 1.3, 1.1
+    }
 
+    // בדיקה שהתוצאה המתקבלת שווה לתוצאה הצפויה
     CHECK(expected == actual);
-
 }
 
-TEST_CASE("test binary tree  inorder iterator") {
-    cout << "test binary tree  inorder iterator" << endl;
-    Tree<double, 2> tree; // Binary tree that contains doubles.
+// בדיקת איטרטור In-Order בעץ בינארי
+TEST_CASE("test binary tree inorder iterator") {
+    cout << "test binary tree inorder iterator" << endl;
+    Tree<double, 2> tree; // עץ בינארי שמכיל מספרים עשרוניים (double).
     Node<double>* root_node = new Node<double>(1.1);
     tree.add_root(root_node);
     Node<double>* n1 = new Node<double>(1.2);
@@ -86,7 +88,7 @@ TEST_CASE("test binary tree  inorder iterator") {
     Node<double>* n4 = new Node<double>(1.5);
     Node<double>* n5 = new Node<double>(1.6);
 
-
+    // הוספת תתי צמתים לעץ
     tree.add_sub_node(root_node, n1);
     tree.add_sub_node(root_node, n2);
     tree.add_sub_node(n1, n3);
@@ -96,18 +98,20 @@ TEST_CASE("test binary tree  inorder iterator") {
     vector<double> expected = { 1.4, 1.2, 1.5, 1.1, 1.6, 1.3 };
     vector<double> actual;
 
+    // איטרציה על העץ בסדר In-Order ואיסוף התוצאות
     for (auto it = tree.begin_in_order(); it != tree.end_in_order(); ++it)
     {
         actual.push_back(it->get_value());
-    } // prints: 1.4, 1.2, 1.5, 1.1, 1.6, 1.3
+    }
 
+    // בדיקה שהתוצאה המתקבלת שווה לתוצאה הצפויה
     CHECK(expected == actual); 
-
 }
 
-TEST_CASE("test binary tree  bfs iterator") {
-    cout << "test binary tree  bfs iterator" << endl;
-    Tree<double, 2> tree; // Binary tree that contains doubles.
+// בדיקת איטרטור BFS בעץ בינארי
+TEST_CASE("test binary tree bfs iterator") {
+    cout << "test binary tree bfs iterator" << endl;
+    Tree<double, 2> tree; // עץ בינארי שמכיל מספרים עשרוניים (double).
     Node<double>* root_node = new Node<double>(1.1);
     tree.add_root(root_node);
     Node<double>* n1 = new Node<double>(1.2);
@@ -116,7 +120,7 @@ TEST_CASE("test binary tree  bfs iterator") {
     Node<double>* n4 = new Node<double>(1.5);
     Node<double>* n5 = new Node<double>(1.6);
 
-
+    // הוספת תתי צמתים לעץ
     tree.add_sub_node(root_node, n1);
     tree.add_sub_node(root_node, n2);
     tree.add_sub_node(n1, n3);
@@ -126,18 +130,20 @@ TEST_CASE("test binary tree  bfs iterator") {
     vector<double> expected = { 1.1, 1.2, 1.3, 1.4, 1.5, 1.6 };
     vector<double> actual;
 
+    // איטרציה על העץ בסדר BFS ואיסוף התוצאות
     for (auto it = tree.begin_bfs_scan(); it != tree.end_bfs_scan(); ++it)
     {
         actual.push_back(it->get_value());
-    } // prints: 1.1, 1.2, 1.3, 1.4, 1.5, 1.6
+    }
 
+    // בדיקה שהתוצאה המתקבלת שווה לתוצאה הצפויה
     CHECK(expected == actual);
-
 }
 
+// בדיקת איטרטור BFS בעץ בינארי באמצעות לולאת auto
 TEST_CASE("test binary tree auto loop bfs iterator") {
     cout << "test binary tree auto loop bfs iterator" << endl;
-    Tree<double, 2> tree; // Binary tree that contains doubles.
+    Tree<double, 2> tree; // עץ בינארי שמכיל מספרים עשרוניים (double).
     Node<double>* root_node = new Node<double>(1.1);
     tree.add_root(root_node);
     Node<double>* n1 = new Node<double>(1.2);
@@ -146,7 +152,7 @@ TEST_CASE("test binary tree auto loop bfs iterator") {
     Node<double>* n4 = new Node<double>(1.5);
     Node<double>* n5 = new Node<double>(1.6);
 
-
+    // הוספת תתי צמתים לעץ
     tree.add_sub_node(root_node, n1);
     tree.add_sub_node(root_node, n2);
     tree.add_sub_node(n1, n3);
@@ -156,20 +162,20 @@ TEST_CASE("test binary tree auto loop bfs iterator") {
     vector<double> expected = { 1.1, 1.2, 1.3, 1.4, 1.5, 1.6 };
     vector<double> actual;
 
+    // איטרציה על העץ בסדר BFS ואיסוף התוצאות באמצעות לולאת auto
     for (auto node : tree)
     {
          actual.push_back(node.get_value());
-      
-    } // same as BFS: 1.1, 1.2, 1.3, 1.4, 1.5, 1.6
+    }
 
+    // בדיקה שהתוצאה המתקבלת שווה לתוצאה הצפויה
     CHECK(expected == actual);
-
 }
 
-
-TEST_CASE("test minimum binary heap  iterator") {
-    cout << "test minimum binary heap  iterator" << endl;
-    Tree<double, 2> tree; // Binary tree that contains doubles.
+// בדיקת איטרטור בערימת מינימום בינארית
+TEST_CASE("test minimum binary heap iterator") {
+    cout << "test minimum binary heap iterator" << endl;
+    Tree<double, 2> tree; // עץ בינארי שמכיל מספרים עשרוניים (double).
     Node<double>* root_node = new Node<double>(1.1);
     tree.add_root(root_node);
     Node<double>* n1 = new Node<double>(1.2);
@@ -178,31 +184,30 @@ TEST_CASE("test minimum binary heap  iterator") {
     Node<double>* n4 = new Node<double>(1.5);
     Node<double>* n5 = new Node<double>(1.6);
 
-
+    // הוספת תתי צמתים לעץ
     tree.add_sub_node(root_node, n1);
     tree.add_sub_node(root_node, n2);
     tree.add_sub_node(n1, n3);
     tree.add_sub_node(n1, n4);
     tree.add_sub_node(n2, n5);
 
-    vector<double> expected = { 1.1, 1.2, 1.4,1.5, 1.3, 1.6 };
+    vector<double> expected = { 1.1, 1.2, 1.4, 1.5, 1.3, 1.6 };
     vector<double> actual;
 
     tree.myHeap();
 
-
+    // איטרציה על הערימה הבינארית ואיסוף התוצאות
     for (auto it = tree.begin_heap(); it != tree.end_heap(); ++it)
     {
         actual.push_back(*it);
-    } // prints: 1.1, 1.2, 1.4,1.5, 1.3, 1.6
+    }
 
+    // בדיקה שהתוצאה המתקבלת שווה לתוצאה הצפויה
     CHECK(expected == actual);
-
-    
-
 }
 
-TEST_CASE("test three_ary_tree preorder  iterator") {
+// בדיקת איטרטור Pre-Order בעץ עם שלושה ילדים לכל צומת
+TEST_CASE("test three_ary_tree preorder iterator") {
     cout << "test three_ary_tree preorder iterator" << endl;
     Node<double>* root_node = new Node<double>(1.1);
     Node<double>* n1 = new Node<double>(1.2);
@@ -211,7 +216,7 @@ TEST_CASE("test three_ary_tree preorder  iterator") {
     Node<double>* n4 = new Node<double>(1.5);
     Node<double>* n5 = new Node<double>(1.6);
 
-    Tree<double, 3> three_ary_tree; // 3-ary tree.
+    Tree<double, 3> three_ary_tree; // עץ עם שלושה ילדים לכל צומת.
     three_ary_tree.add_root(root_node);
     three_ary_tree.add_sub_node(root_node, n1);
     three_ary_tree.add_sub_node(root_node, n2);
@@ -219,9 +224,10 @@ TEST_CASE("test three_ary_tree preorder  iterator") {
     three_ary_tree.add_sub_node(n1, n4);
     three_ary_tree.add_sub_node(n2, n5);
 
-    vector<double> expected = { 1.1, 1.2, 1.5,1.3, 1.6, 1.4 };
+    vector<double> expected = { 1.1, 1.2, 1.5, 1.3, 1.6, 1.4 };
     vector<double> actual;
 
+    // איטרציה על העץ בסדר Pre-Order ואיסוף התוצאות
     for (auto it = three_ary_tree.begin_pre_order(); it != three_ary_tree.end_pre_order(); ++it)
     {
         actual.push_back(it->get_value());
@@ -229,7 +235,8 @@ TEST_CASE("test three_ary_tree preorder  iterator") {
     CHECK(expected == actual);
 }
 
-TEST_CASE("test three_ary_tree dfsiterator  iterator") {
+// בדיקת איטרטור DFS בעץ עם שלושה ילדים לכל צומת
+TEST_CASE("test three_ary_tree dfsiterator iterator") {
     cout << "test three_ary_tree dfsiterator iterator" << endl;
     Node<double>* root_node = new Node<double>(1.1);
     Node<double>* n1 = new Node<double>(1.2);
@@ -238,7 +245,7 @@ TEST_CASE("test three_ary_tree dfsiterator  iterator") {
     Node<double>* n4 = new Node<double>(1.5);
     Node<double>* n5 = new Node<double>(1.6);
 
-    Tree<double, 3> three_ary_tree; // 3-ary tree.
+    Tree<double, 3> three_ary_tree; // עץ עם שלושה ילדים לכל צומת.
     three_ary_tree.add_root(root_node);
     three_ary_tree.add_sub_node(root_node, n1);
     three_ary_tree.add_sub_node(root_node, n2);
@@ -246,9 +253,10 @@ TEST_CASE("test three_ary_tree dfsiterator  iterator") {
     three_ary_tree.add_sub_node(n1, n4);
     three_ary_tree.add_sub_node(n2, n5);
 
-    vector<double> expected = { 1.1, 1.2, 1.5,1.3, 1.6, 1.4 };
+    vector<double> expected = { 1.1, 1.2, 1.5, 1.3, 1.6, 1.4 };
     vector<double> actual;
 
+    // איטרציה על העץ בסדר DFS ואיסוף התוצאות
     for (auto it = three_ary_tree.begin_dfs_order(); it != three_ary_tree.end_dfs_order(); ++it)
     {
         actual.push_back(it->get_value());
@@ -256,9 +264,8 @@ TEST_CASE("test three_ary_tree dfsiterator  iterator") {
     CHECK(expected == actual);
 }
 
-
-
-TEST_CASE("test complex preorder  iterator") {
+// בדיקת איטרטור Pre-Order בעץ בינארי שמכיל אובייקטים מסוג complex<double>
+TEST_CASE("test complex preorder iterator") {
     cout << "test complex preorder iterator" << endl;
     complex<double> croot(1.1, 1.1);
     complex<double> c1(1.2, 1.2);
@@ -267,15 +274,12 @@ TEST_CASE("test complex preorder  iterator") {
     complex<double> c4(1.5, 1.5);
     complex<double> c5(1.6, 1.6);
 
-
     Node<complex<double>>* c_root_node = new Node<complex<double>>(croot);
     Node<complex<double>>* c1_node = new Node<complex<double>>(c1);
     Node<complex<double>>* c2_node = new Node<complex<double>>(c2);
     Node<complex<double>>* c3_node = new Node<complex<double>>(c3);
     Node<complex<double>>* c4_node = new Node<complex<double>>(c4);
     Node<complex<double>>* c5_node = new Node<complex<double>>(c5);
-
-
 
     Tree<complex<double>, 2> complex_tree;
     complex_tree.add_root(c_root_node);
@@ -285,22 +289,21 @@ TEST_CASE("test complex preorder  iterator") {
     complex_tree.add_sub_node(c1_node, c4_node);
     complex_tree.add_sub_node(c2_node, c5_node);
 
-    vector<complex<double>> expected = { croot, c1, c3,c4, c2, c5 };
+    vector<complex<double>> expected = { croot, c1, c3, c4, c2, c5 };
     vector<complex<double>> actual;
 
+    // איטרציה על העץ בסדר Pre-Order ואיסוף התוצאות
     for (auto it = complex_tree.begin_pre_order(); it != complex_tree.end_pre_order(); ++it)
     {
         actual.push_back(it->get_value());
     }
     CHECK(expected == actual);
-
-
 }
 
-
-TEST_CASE("test string binary tree  preorder iterator") {
-    cout << "test string binary tree  preorder iterator" << endl;
-    Tree<string, 2> tree; // Binary tree that contains doubles.
+// בדיקת איטרטור Pre-Order בעץ בינארי שמכיל מחרוזות (string)
+TEST_CASE("test string binary tree preorder iterator") {
+    cout << "test string binary tree preorder iterator" << endl;
+    Tree<string, 2> tree; // עץ בינארי שמכיל מחרוזות.
     Node<string>* root_node = new Node<string>("all");
     tree.add_root(root_node);
     Node<string>* n1 = new Node<string>("you");
@@ -309,21 +312,22 @@ TEST_CASE("test string binary tree  preorder iterator") {
     Node<string>* n4 = new Node<string>("love");
     Node<string>* n5 = new Node<string>("hello");
 
-
+    // הוספת תתי צמתים לעץ
     tree.add_sub_node(root_node, n1);
     tree.add_sub_node(root_node, n2);
     tree.add_sub_node(n1, n3);
     tree.add_sub_node(n1, n4);
     tree.add_sub_node(n2, n5);
 
-    vector<string> expected = { "all", "you", "is", "love", "need","hello" };
+    vector<string> expected = { "all", "you", "is", "love", "need", "hello" };
     vector<string> actual;
 
+    // איטרציה על העץ בסדר Pre-Order ואיסוף התוצאות
     for (auto it = tree.begin_pre_order(); it != tree.end_pre_order(); ++it)
     {
         actual.push_back(it->get_value());
     }
 
+    // בדיקה שהתוצאה המתקבלת שווה לתוצאה הצפויה
     CHECK(expected == actual);
-
 }
