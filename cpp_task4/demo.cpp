@@ -1,3 +1,4 @@
+#reutgerber@gmail.com
 #include "node.hpp"
 #include <stack>
 #include <complex>
