@@ -104,7 +104,7 @@ int main()
     three_ary_tree.add_sub_node(root_node, n3);
     three_ary_tree.add_sub_node(n1, n4);
     three_ary_tree.add_sub_node(n2, n5);
-
+    three_ary_tree.drawTree(root_node);
     // The tree should look like:
     /**
      *       root = 1.1
