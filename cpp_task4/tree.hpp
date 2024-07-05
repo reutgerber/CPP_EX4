@@ -96,11 +96,46 @@ public:
         deleted = true;
     }
 
-    // פונקציה ליצירת ערימת מינימום מכל הצמתים בעץ
-    void myHeap() {
-        for (auto node : *this) {
-            add_to_heap(node.get_value(), min_heap);
+    
+   
+
+    //get the parent of node
+    int parent(int i) { return (i-1)/2; } 
+  
+    // to get index of left child of node at index i 
+    int left(int i) { return (2*i + 1); } 
+  
+    // to get index of right child of node at index i 
+    int right(int i) { return (2*i + 2); } 
+     
+     // Inserts a new key 'k' 
+    void insertKey(T k) 
+    { 
+    
+  
+    // First insert the new key at the end 
+    
+    min_heap.push_back(k); 
+  
+    // Fix the min heap property if it is violated 
+    while (i != 0 && min_heap[parent(i)] > min_heap[i]) 
+    { 
+       swap(&min_heap[i], &min_heap[parent(i)]); 
+       i = parent(i); 
+    } 
+} 
+
+// פונקציה ליצירת ערימת מינימום מכל הצמתים בעץ
+    void myHeap()
+    {
+        int i=0;
+         for (auto node : *this) {
+            {
+            insertKey(node.get_value());
+            i++;
+            }
         }
+
     }
 
     // איטרטור לסריקת עץ בסדר DFS
@@ -174,6 +209,7 @@ public:
 private:
     bool deleted; // משתנה לבדיקה אם העץ נמחק
     std::vector<T> min_heap; // ערימת מינימום
+
 
     // פונקציה לבדיקת התאמה בערימת מינימום
     bool check(int parentIndex, int newIndex, std::vector<T> &v) {

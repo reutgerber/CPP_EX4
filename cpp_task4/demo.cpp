@@ -84,7 +84,7 @@ int main()
     for (auto it = tree.begin_heap(); it != tree.end_heap(); ++it)
     {
         cout << *it << endl;
-    } // prints: 1.1, 1.2, 1.3, 1.4, 1.5, 1.6
+    } // prints: 1.1, 1.2, 1.4, 1.5,  1.3,1.6
 
     // cout << tree; // Should print the graph using GUI.
 
@@ -119,6 +119,12 @@ int main()
     cout << endl;
 
     for (auto it = three_ary_tree.begin_pre_order(); it != three_ary_tree.end_pre_order(); ++it)
+    {
+        cout << *it << endl;
+        cout << endl;
+    }
+    cout<<"post order with three nodes"<<endl;
+     for (auto it = three_ary_tree.begin_post_order(); it != three_ary_tree.end_post_order(); ++it)
     {
         cout << *it << endl;
         cout << endl;

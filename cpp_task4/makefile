@@ -1,4 +1,3 @@
-#reutgerber@gmail.com
 CXX = g++
 CXXFLAGS = -std=c++11 -Wall -Wextra -pedantic -I include -I /usr/local/include
 

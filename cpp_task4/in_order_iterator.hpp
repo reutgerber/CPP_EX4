@@ -1,6 +1,4 @@
 //reutgerber@gmail.com
-#pragma once
-#pragma once
 #include "node.hpp"
 #include <stack>
 #include "dfsiterator.hpp"
@@ -70,8 +68,10 @@ private:
             DfsOrderIterator<T>::advance();
             return;
         }
+        //if current null
         if (!DfsOrderIterator<T>::currentNode) return;
 
+        //if current have children and more than one (means two children)
         if (!DfsOrderIterator<T>::currentNode->children.empty() && DfsOrderIterator<T>::currentNode->children.size() > 1) {
             Node<T>* temp = DfsOrderIterator<T>::currentNode->children[1];
             while (temp) {
@@ -79,7 +79,7 @@ private:
                 temp = temp->children.empty() ? nullptr : temp->children[0];
             }
         }
-
+        
         if (!visitStack.empty()) {
             DfsOrderIterator<T>::currentNode = visitStack.top();
             visitStack.pop();

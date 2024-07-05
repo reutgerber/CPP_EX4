@@ -1,5 +1,4 @@
 //reutgerber@gmail.com
-#pragma once
 #include "node.hpp"
 #include <vector>
 #include <stack>

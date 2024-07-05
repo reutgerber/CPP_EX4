@@ -1,5 +1,4 @@
 //reutgerber@gmail.com
-#pragma once
 #include "node.hpp"
 #include <stack>
 #include "dfsiterator.hpp"
@@ -11,7 +10,7 @@ public:
     using pointer = Node<T>*;
     using reference = Node<T>&;
 
-   
+    //constructor
     PostOrderIterator<T,k>(Node<T>* root) :DfsOrderIterator<T>(root) {
         if (k > 2)
             return;
