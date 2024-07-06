@@ -4,6 +4,7 @@
         "iostream": "cpp",
         "array": "cpp",
         "sstream": "cpp",
-        "tuple": "cpp"
+        "tuple": "cpp",
+        "system_error": "cpp"
     }
 }

@@ -2,7 +2,7 @@ CXX = g++
 CXXFLAGS = -std=c++11 -Wall -Wextra -pedantic -I include -I /usr/local/include
 
 # קבצים מקוריים
-SRC_FILES =  bfs_iterator.hpp dfsiterator.hpp heap_iterator.hpp in_order_iterator.hpp node.hpp PostOrderIterator.hpp PreOrderiterator.hpp #demo.cpp
+SRC_FILES = bfs_iterator.hpp dfsiterator.hpp heap_iterator.hpp in_order_iterator.hpp node.hpp PostOrderIterator.hpp PreOrderiterator.hpp complex.hpp #demo.cpp
 OBJ_FILES = $(SRC_FILES:.cpp=.o)
 EXECUTABLE = demo
 
@@ -12,8 +12,8 @@ TEST_OBJ_FILES = $(TEST_SRC_FILES:.cpp=.o)
 TEST_EXECUTABLE = test
 
 # כלל ברירת מחדל
-all: $(TEST_EXECUTABLE) #$(EXECUTABLE) 
-# 
+all:  $(TEST_EXECUTABLE) #$(EXECUTABLE) 
+
 
 # # בניית התוכנית הראשית
 # $(EXECUTABLE): $(OBJ_FILES)

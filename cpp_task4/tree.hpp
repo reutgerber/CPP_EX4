@@ -45,7 +45,7 @@ public:
         text.setFont(font); // הגדרת הפונט
         text.setString(std::to_string(node->data)); // הנחה שהערך ניתן להמרה למחרוזת
         text.setCharacterSize(15); // הגדרת גודל הטקסט
-        text.setFillColor(sf::Color::White); // הגדרת צבע הטקסט
+        text.setFillColor(sf::Color::Red); // הגדרת צבע הטקסט
         text.setPosition(x - 10, y - 10); // מיקום הטקסט קרוב לצומת
 
         window.draw(text); // ציור הטקסט

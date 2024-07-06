@@ -5,7 +5,7 @@
 #include "doctest.h"
 
 #include <stack>
-#include <complex>
+#include "complex.hpp"
 #include <iostream>
 #include <string>
 #include "node.hpp"
@@ -264,36 +264,36 @@ TEST_CASE("test three_ary_tree dfsiterator iterator") {
     CHECK(expected == actual);
 }
 
-// בדיקת איטרטור Pre-Order בעץ בינארי שמכיל אובייקטים מסוג complex<double>
-TEST_CASE("test complex preorder iterator") {
-    cout << "test complex preorder iterator" << endl;
-    complex<double> croot(1.1, 1.1);
-    complex<double> c1(1.2, 1.2);
-    complex<double> c2(1.3, 1.3);
-    complex<double> c3(1.4, 1.4);
-    complex<double> c4(1.5, 1.5);
-    complex<double> c5(1.6, 1.6);
+// בדיקת איטרטור Pre-Order בעץ בינארי שמכיל אובייקטים מסוג Complex<double>
+TEST_CASE("test Complex preorder iterator") {
+    cout << "test Complex preorder iterator" << endl;
+    Complex<double> croot(1.1, 1.1);
+    Complex<double> c1(1.2, 1.2);
+    Complex<double> c2(1.3, 1.3);
+    Complex<double> c3(1.4, 1.4);
+    Complex<double> c4(1.5, 1.5);
+    Complex<double> c5(1.6, 1.6);
 
-    Node<complex<double>>* c_root_node = new Node<complex<double>>(croot);
-    Node<complex<double>>* c1_node = new Node<complex<double>>(c1);
-    Node<complex<double>>* c2_node = new Node<complex<double>>(c2);
-    Node<complex<double>>* c3_node = new Node<complex<double>>(c3);
-    Node<complex<double>>* c4_node = new Node<complex<double>>(c4);
-    Node<complex<double>>* c5_node = new Node<complex<double>>(c5);
+    Node<Complex<double>>* c_root_node = new Node<Complex<double>>(croot);
+    Node<Complex<double>>* c1_node = new Node<Complex<double>>(c1);
+    Node<Complex<double>>* c2_node = new Node<Complex<double>>(c2);
+    Node<Complex<double>>* c3_node = new Node<Complex<double>>(c3);
+    Node<Complex<double>>* c4_node = new Node<Complex<double>>(c4);
+    Node<Complex<double>>* c5_node = new Node<Complex<double>>(c5);
 
-    Tree<complex<double>, 2> complex_tree;
-    complex_tree.add_root(c_root_node);
-    complex_tree.add_sub_node(c_root_node, c1_node);
-    complex_tree.add_sub_node(c_root_node, c2_node);
-    complex_tree.add_sub_node(c1_node, c3_node);
-    complex_tree.add_sub_node(c1_node, c4_node);
-    complex_tree.add_sub_node(c2_node, c5_node);
+    Tree<Complex<double>, 2> Complex_tree;
+    Complex_tree.add_root(c_root_node);
+    Complex_tree.add_sub_node(c_root_node, c1_node);
+    Complex_tree.add_sub_node(c_root_node, c2_node);
+    Complex_tree.add_sub_node(c1_node, c3_node);
+    Complex_tree.add_sub_node(c1_node, c4_node);
+    Complex_tree.add_sub_node(c2_node, c5_node);
 
-    vector<complex<double>> expected = { croot, c1, c3, c4, c2, c5 };
-    vector<complex<double>> actual;
+    vector<Complex<double>> expected = { croot, c1, c3, c4, c2, c5 };
+    vector<Complex<double>> actual;
 
     // איטרציה על העץ בסדר Pre-Order ואיסוף התוצאות
-    for (auto it = complex_tree.begin_pre_order(); it != complex_tree.end_pre_order(); ++it)
+    for (auto it = Complex_tree.begin_pre_order(); it != Complex_tree.end_pre_order(); ++it)
     {
         actual.push_back(it->get_value());
     }
