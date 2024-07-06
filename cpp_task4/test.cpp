@@ -191,7 +191,7 @@ TEST_CASE("test minimum binary heap iterator") {
     tree.add_sub_node(n1, n4);
     tree.add_sub_node(n2, n5);
 
-    vector<double> expected = { 1.1, 1.2, 1.4, 1.5, 1.3, 1.6 };
+    vector<double> expected = { 1.1, 1.2, 1.3,1.4, 1.5, 1.6 };
     vector<double> actual;
 
     tree.myHeap();

@@ -11,13 +11,9 @@ public:
 	HeapIterator(int index,vector<T>& min_heap)
 	{
 		this->min_heap = min_heap;
+		this->currentIndex=index;
 		
-			if (index< min_heap.size())
-			{
-				auto root = make_pair(min_heap[index], index);
-				traversal.push(root);
-			}
-		advance();
+	
 	}
 
 	HeapIterator operator++()
@@ -36,55 +32,30 @@ public:
 	}
 	reference operator*()
 	{
-		return currentNode.first;
+		return min_heap[currentIndex];
 
 	}
 	pointer operator->()
 	{
-		return &currentNode.first;
+		return &min_heap[currentIndex];
 	}
 	bool operator== (const HeapIterator& other)
 	{
-		return (other.currentNode == this->currentNode && this->traversal == other.traversal);
+		return (other.currentIndex == this->currentIndex && this->min_heap == other.min_heap);
 	}
 	bool operator != (const HeapIterator& other)
 	{
 		return !(*this == other);
 
 	}
-protected:
+private:
 	vector<T> min_heap;
-	//int currentIndex;
-	stack<pair<T,int>> traversal;
-	pair<T, int> currentNode;
+	int currentIndex;
 
 
 	void advance()
 	{
-		if (traversal.empty())
-		{
-			currentNode = make_pair(0,-1);
-		}
-		else
-		{
-			currentNode = traversal.top();
-			traversal.pop();
-
-			int rightIndex = 2 * currentNode.second + 2;
-			int leftIndex = 2 * currentNode.second + 1;
-			if (rightIndex< min_heap.size())
-				traversal.push(make_pair(min_heap[rightIndex], rightIndex));
-			if (leftIndex< min_heap.size())
-				traversal.push(make_pair(min_heap[leftIndex], leftIndex));
-
-
-		}
+		currentIndex++;
 	}
-
-
-	
-
-
-
 };
 

@@ -107,20 +107,23 @@ public:
   
     // to get index of right child of node at index i 
     int right(int i) { return (2*i + 2); } 
+
+   
      
      // Inserts a new key 'k' 
-    void insertKey(T k) 
+    void insertKey(T data,int i) 
     { 
     
   
     // First insert the new key at the end 
     
-    min_heap.push_back(k); 
+    min_heap.push_back(data); 
   
     // Fix the min heap property if it is violated 
     while (i != 0 && min_heap[parent(i)] > min_heap[i]) 
     { 
-       swap(&min_heap[i], &min_heap[parent(i)]); 
+        cout<<"swap ("<<i<<","<<parent(i)<<") val ("<<min_heap[i]<<","<<min_heap[parent(i)]<<")"<<endl;
+       swap(min_heap[i], min_heap[parent(i)]); 
        i = parent(i); 
     } 
 } 
@@ -131,7 +134,8 @@ public:
         int i=0;
          for (auto node : *this) {
             {
-            insertKey(node.get_value());
+            cout<<"heap in "<<node.get_value()<<endl;
+            insertKey(node.get_value(),i);
             i++;
             }
         }
